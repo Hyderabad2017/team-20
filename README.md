@@ -26,6 +26,15 @@ Dattamber
 
 ---
 
+* @Dattamber As long as you are familiar with Firebase, I'm fine. I'm mostly into Web, mate.
+* I'm actually browsing through the link you put as well as other tutorials. It does seem plausible to use. But then again, as @Saiyana put it, it all tumbles down to problem statement. 
+
+See you all tomorrow.
+
+Arshad
+
+--- 
+
 Kindly put forward your ideas and suggestions ...
 
 ---
