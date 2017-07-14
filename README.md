@@ -19,3 +19,13 @@ Kindly put forward your ideas and suggestions ...
 Hello! Even I agree with the thought of using Google MDL, as it saves a lot of time and I feel it will be better if we share our work with respect to our skill sets, then decide and stick to the design flow once we choose a problem statement, as the requirements may change from one problem to another.
 
 Saiyana
+ 
+ ---
+ 
+* @Arshad I'm good with the concepts of Firebase so I can assist you in using it. Mate, what are you good at ? Android or Web ?
+* Firebase is used for rapid development, rather say, prototyping which we'll be doing tomorrow. So, here's a link to the docs from Google - [Reading and writing to database](https://firebase.google.com/docs/database/web/read-and-write) - If we stick to this, then we are ready to develop solutions for Android and Web with some really good features.
+* @Saiyana .. web or android ?
+
+Dattamber
+
+---
