@@ -12,10 +12,6 @@ Hi! There everyone.
 Arshad
 
 ---
-
-Kindly put forward your ideas and suggestions ...
-
----
 Hello! Even I agree with the thought of using Google MDL, as it saves a lot of time and I feel it will be better if we share our work with respect to our skill sets, then decide and stick to the design flow once we choose a problem statement, as the requirements may change from one problem to another.
 
 Saiyana
@@ -27,5 +23,9 @@ Saiyana
 * @Saiyana .. web or android ?
 
 Dattamber
+
+---
+
+Kindly put forward your ideas and suggestions ...
 
 ---
