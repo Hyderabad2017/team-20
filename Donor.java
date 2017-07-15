@@ -20,13 +20,14 @@ public class Donor {
     public String dLocation;
     public Long dLat;
     public Long dLong;
+    public String dDate;
     public String dPublished;
 
     public Post() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Post(Long did, String dname, String dbloodgroup, Long dweight, Long dcontact1, Long dcontact2,String demail, String dlocation,Long dlat, Long dlong,String dpublished) {
+    public Post(Long did, String dname, String dbloodgroup, Long dweight, Long dcontact1, Long dcontact2,String demail, String dlocation,Long dlat, Long dlong,String ddate, String dpublished) {
         this.dID = did;
         this.dName = dname;
         this.dBloodGroup = dbloodgroup;
@@ -37,6 +38,7 @@ public class Donor {
         this.dLocation = dlocation;
         this.dLat = dlat;
         this.dLong = dlong;
+        this.dDate = ddate;
         this.dPublished = dpublished;
     }
 
