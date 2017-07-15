@@ -1,5 +1,4 @@
-package com.example.dattamber.sdhs;
-
+package com.example.dattamber.cfg_uwh;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,23 +9,23 @@ import java.util.Map;
 public class Donor {
 
 
-    public Long dID; 
+    public Long dID;
     public String dName;
     public String dBloodGroup;
-    public Long dContact1;
-    public Long dContact2;
+    public Long dWeight;
+    public String dContact1;
+    public String dContact2;
     public String dEmail;
     public String dLocation;
     public Long dLat;
     public Long dLong;
-    public String dDate;
     public String dPublished;
 
     public Donor() {
-        // Default constructor required for calls to DataSnapshot.getValue(Post.class)
+        // Default constructor required for calls to DataSnapshot.getValue(Donor.class)
     }
 
-    public Donor(Long did, String dname, String dbloodgroup, Long dcontact1, Long dcontact2,String demail, String dlocation,Long dlat, Long dlong,String ddate, String dpublished) {
+    public Donor(Long did, String dname, String dbloodgroup, String dcontact1, String dcontact2,String demail, String dlocation) {
         this.dID = did;
         this.dName = dname;
         this.dBloodGroup = dbloodgroup;
@@ -34,10 +33,6 @@ public class Donor {
         this.dContact2 = dcontact2;
         this.dEmail = demail;
         this.dLocation = dlocation;
-        this.dLat = dlat;
-        this.dLong = dlong;
-        this.dDate = ddate;
-        this.dPublished = dpublished;
     }
 
     public Map<String, Object> toMap() {
@@ -49,12 +44,7 @@ public class Donor {
         result.put("dContact2",dContact2);
         result.put("dEmail",dEmail);
         result.put("dLocation",dLocation);
-        result.put("dLat",dLat);
-        result.put("dLong",dLong);
-        result.put("dDate",dDate);
-        result.put("dPublished",dPublished);
         return result;
     }
 
 }
-
