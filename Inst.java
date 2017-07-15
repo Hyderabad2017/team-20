@@ -10,49 +10,41 @@ import java.util.Map;
 public class Inst {
 
 
-    public Long iID; 
-    public String iName;
-    public Long iContact1;
-    public Long iContact2;
-    public String iEmail;
-    public String iLocation;
-    public Long iLat;
-    public Long iLong;
-    public String iDate;
-    public String iPublished;
-    public Long iDID;
-
+    public Long dID; 
+    public String dName;
+    public Long dContact1;
+    public Long dContact2;
+    public String dEmail;
+    public String dLocation;
+    public Long dlat;
+    public Long dlon;
+    
     public Inst() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Inst(Long iid, String iname, Long icontact1, Long icontact2, String iemail, String ipassword, String ilocation, Long ilat, Long ilong, String idate, String ipublished, Long idid) {
-        this.iID = iid;
-        this.iName = iname;
-        this.iContact1 = icontact1;
-        this.iContact2 = icontact2;
-        this.iEmail = iemail;
-        this.iLocation = ilocation;
-        this.iLat = ilat;
-        this.iLong = ilong;
-        this.iDate = idate;
-        this.iPublished = ipublished;
-        this.iDID = idid;
+    public Inst(Long iid, String iname, Long icontact1, Long icontact2, String iemail, String ipassword, String ilocation, Long ilat, Long ilong) {
+        this.dID = iid;
+        this.dName = iname;
+        this.dContact1 = icontact1;
+        this.dContact2 = icontact2;
+        this.dEmail = iemail;
+        this.dLocation = ilocation;
+        this.dlat = ilat;
+        this.dlon = ilong;
     }
 
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-        result.put("iID", dID);
-        result.put("iName", dName);
-        result.put("iContact1",iContact1);
-        result.put("iContact2",iContact2);
-        result.put("iEmail",iEmail);
-        result.put("iLocation",iLocation);
-        result.put("iLat",iLat);
-        result.put("iLong",iLong);
-        result.put("iDate",iDate);
-        result.put("dPublished",dPublished);
-        result.put("iDID",iDID);
+        result.put("dID", dID);
+        result.put("dName", dName);
+        result.put("dContact1",dContact1);
+        result.put("dContact2",dContact2);
+        result.put("dEmail",dEmail);
+        result.put("dtype","bloodbank");
+        result.put("dLocation",dLocation);
+        result.put("dlat","789");
+        result.put("dlon","546");
         return result;
     }
 
