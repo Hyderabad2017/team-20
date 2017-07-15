@@ -22,11 +22,11 @@ public class Inst {
     public String iPublished;
     public Long iDID;
 
-    public Post() {
+    public Inst() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Post(Long iid, String iname, Long icontact1, Long icontact2, String iemail, String ilocation, Long ilat, Long ilong, String idate, String ipublished, Long idid) {
+    public Inst(Long iid, String iname, Long icontact1, Long icontact2, String iemail, String ipassword, String ilocation, Long ilat, Long ilong, String idate, String ipublished, Long idid) {
         this.iID = iid;
         this.iName = iname;
         this.iContact1 = icontact1;
