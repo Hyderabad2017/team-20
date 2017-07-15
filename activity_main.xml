@@ -40,15 +40,41 @@
         android:layout_width="223dp"
         android:layout_height="35dp"
         tools:layout_editor_absoluteX="27dp"
-        tools:layout_editor_absoluteY="57dp" />
+        tools:layout_editor_absoluteY="72dp" />
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send Request"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="244dp" />
+        android:text="Blood group"
+        tools:layout_editor_absoluteY="55dp"
+        tools:layout_editor_absoluteX="27dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter the deadline"
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="198dp" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_editor_absoluteX="27dp"
+        tools:layout_editor_absoluteY="215dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEND REQUEST"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="277dp" />
 
 
 </android.support.constraint.ConstraintLayout>
