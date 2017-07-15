@@ -13,7 +13,8 @@ public class Institute {
     public String dLocation;
     public String dlat;
     public String dlon;
-    
+    public String dtype;
+
     public String getiID() {
         return dID;
     }
@@ -78,5 +79,12 @@ public class Institute {
         this.dlon=dlon;
     }
 
+    public String getdtype() {
+        return dtype;
+    }
+
+    public void setdtype(String dtype) {
+        this.dtype=dtype;
+    }
 }
 

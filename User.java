@@ -72,7 +72,7 @@ public class User {
         this.dName=dName;
     }
 
-    public String dtype() {
+    public String getdtype() {
         return dtype;
     }
 
