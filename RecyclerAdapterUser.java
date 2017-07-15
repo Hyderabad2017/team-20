@@ -14,7 +14,7 @@ import java.util.List;
  */
 
 
-public class RecyclerAdapterDonation extends RecyclerView.Adapter<RecyclerAdapterDonation.MyHoder>{
+public class RecyclerAdapterUser extends RecyclerView.Adapter<RecyclerAdapterDonation.MyHoder>{
 
     List<Donation> list;
     Context contex;
