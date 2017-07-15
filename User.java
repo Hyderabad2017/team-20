@@ -12,6 +12,9 @@ public class User {
     public String dID;
     public String dLocation;
     public String dName;
+    public String dtype;
+    public String dlat;
+    public String dlon;
 
     public String getdBloodGroup() {
         return dBloodGroup;
@@ -67,6 +70,30 @@ public class User {
    
     public void setdName(String dName) {
         this.dName=dName;
+    }
+
+    public String dtype() {
+        return dtype;
+    }
+
+    public void setdtype(String dtype) {
+        this.dtype=dtype;
+    }
+
+    public String dlat() {
+        return dlat;
+    }
+
+    public void setdlat(String dlat) {
+        this.dlat=dlat;
+    }
+
+    public String dlon() {
+        return dlon;
+    }
+
+    public void setdlon(String dlon) {
+        this.dlon=dlon;
     }
 }
 

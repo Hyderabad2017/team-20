@@ -5,104 +5,78 @@ import java.util.Map;
 
 
 public class Institute {
-    public String iID;
-    public String iName;
-    public String iEmail;
-    public String iContact1;
-    public String iContact2;
-    public String iLocation;
-    public String iLat;
-    public String iLong;
-    public String idate;
-    public String dPublished;
-    public String iDID;
+    public String dID;
+    public String dName;
+    public String dEmail;
+    public String dContact1;
+    public String dContact2;
+    public String dLocation;
+    public String dlat;
+    public String dlon;
     
     public String getiID() {
-        return iID;
+        return dID;
     }
 
-    public void setiID(String iID) {
-        this.iID = iID;
+    public void setiID(String dID) {
+        this.dID = dID;
     }   
 
     public String getiName() {
-        return iName;
+        return dName;
     }
 
     public void setiName(String name) {
-        this.iName=name;
+        this.dName=name;
     }
 
     public String getiEmail() {
-        return iEmail;
+        return dEmail;
     }
 
     public void setiEmail(String email) {
-        this.iEmail=email; 
+        this.dEmail=email; 
     }
 
     public String getIContact1() {
-        return iContact1;
+        return dContact1;
     }
 
-    public void setiContact1(String iContact1) {
-        this.iContact1=iContact1;
+    public void setiContact1(String dContact1) {
+        this.dContact1=dContact1;
     }
 
     public String getIContact2() {
-        return iContact2;
+        return dContact2;
     }
 
-    public void setiContact2(String iContact2) {
-        this.iContact2=iContact2;
+    public void setiContact2(String dContact2) {
+        this.dContact2=dContact2;
     }
 
     public String getLocation() {
-        return location;
+        return dLocation;
     }
 
     public String setiLocation(String iLocation) {
-        this.iLocation=iLocation;
+        this.dlocation=iLocation;
     }
 
     public String getiLat() {
-        return iLat;
+        return dlat;
     }
 
     public void setiLat(String iLat) {
-        this.iLat=iLat;
+        this.dlat=dlat;
     }
 
     public String getiLong() {
-        return iLong;
+        return dlon;
     }
 
     public void setiLong(String iLong) {
-        this.iLong=iLong;
+        this.dlon=dlon;
     }
 
-    public String getiDate() {
-        return idate;
-    }
-
-    public void setiDate(String date) {
-        this.idate=date;
-    }
-
-    public String getdPublished() {
-        return dPublished;
-    }
-
-    public void setdPublished(String dPublished) {
-        this.dPublished=dPublished;
-    }
-
-    public String getiDID() {
-        return iDID;
-    }
-
-    public void setIDID(String iDID) {
-        this.iDID=iDID;
-    }
 }
 
