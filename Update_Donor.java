@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class UpdatePost extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
+public class UpdatePost extends AppCompatActivity implements View.OnClickListener{
     EditText dContact1,dContact2,dLocation;
    /* AutoCompleteTextView team;
     Spinner category;
