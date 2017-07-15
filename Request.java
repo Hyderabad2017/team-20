@@ -37,7 +37,7 @@ public class Request {
         HashMap<String, Object> result = new HashMap<>();
         result.put("bloodGroup", bloodGroup);
         result.put("donationId", donationId);
-        result.put("institutionName", institutionNamen);
+        result.put("institutionName", institutionName);
         result.put("numberOfUnits", numberOfUnits);
         result.put("location",location);
         result.put("contactNumber",contactNumber);
