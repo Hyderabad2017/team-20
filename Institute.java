@@ -5,7 +5,7 @@ import java.util.Map;
 
 
 public class Institute {
-    public String dID;
+    public Long dID;
     public String dName;
     public String dEmail;
     public String dContact1;
@@ -15,11 +15,11 @@ public class Institute {
     public String dlon;
     public String dtype;
 
-    public String getiID() {
+    public Long getiID() {
         return dID;
     }
 
-    public void setiID(String dID) {
+    public void setiID(Long dID) {
         this.dID = dID;
     }   
 

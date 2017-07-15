@@ -9,7 +9,7 @@ public class User {
     public String dContact1;
     public String dContact2;
     public String dEmail;
-    public String dID;
+    public Long dID;
     public String dLocation;
     public String dName;
     public String dtype;
