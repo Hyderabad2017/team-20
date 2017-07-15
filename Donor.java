@@ -54,6 +54,7 @@ public class Donor {
         result.put("dLocation",dLocation);
         result.put("dLat",dLat);
         result.put("dLong",dLong);
+        result.put("dDate",dDate);
         result.put("dPublished",dPublished);
         return result;
     }
