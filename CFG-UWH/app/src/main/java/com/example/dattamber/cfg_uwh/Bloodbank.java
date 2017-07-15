@@ -78,6 +78,7 @@ public class Bloodbank extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
                         for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                             Req value = dataSnapshot1.getValue(Req.class);
+
                                 Req fire = new Req();
                                 String name = value.getinstitutionName();
                                 String bloodgroup = value.getbloodGroup();

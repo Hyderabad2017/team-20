@@ -15,6 +15,7 @@ public class Req {
     public String lat;
     public String lon;
     public String stat;
+    public String status;
     public String deadline;
 
     public String getStat() {
@@ -23,6 +24,14 @@ public class Req {
     public  void  setStat(String stat)
     {
         this.stat=stat;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+    public  void  setStatus(String stat)
+    {
+        this.status=stat;
     }
 
 

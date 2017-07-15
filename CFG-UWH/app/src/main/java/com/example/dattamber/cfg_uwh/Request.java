@@ -27,7 +27,6 @@ public class Request {
     public String stat;
     public String deadline;
 
-
     public Request() {
         // Default constructor required for calls to DataSnapshot.getValue(DonUp.class)
     }
@@ -59,6 +58,8 @@ public class Request {
         result.put("lat",lat);
         result.put("lon",lon);
         result.put("stat",stat);
+        result.put("donor","blaaa");
+        result.put("status","incomplete");
         result.put("deadline",deadline);
         return result;
     }

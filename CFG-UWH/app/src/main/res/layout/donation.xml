@@ -139,6 +139,20 @@
                 android:layout_centerHorizontal="true"
                 style="@style/Base.Widget.AppCompat.Button.Borderless"
                 android:text="DONATE"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/donem"
+                android:visibility="gone"
+                android:layout_below="@id/cddate"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Completed"
+                android:visibility="gone"
+                android:id="@+id/doncomp"
+                android:layout_below="@id/donem"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>
