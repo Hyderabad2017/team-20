@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,6 +31,7 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
     FirebaseAuth mAuth;
     DatabaseReference dref,count;
     ProgressDialog pd;
+    String[] teams ={"Hyderabad","Khammam","Doodivenkatapuram","Bangalore","Chennai","Guntur","Dharmavaram","Mysore","Machilipatnam","Mekedatu","Mumbai","Cochin","Malaysia","United Kingdom","United States of America","Srikakulam","Rajamundry","Vizag","Makavaram","Pulugartha","Pithapuram","Vijayawada","Gannavaram","Gudiwada","Dharmajigudem","Nuziveedu","Ongole","Chirala","Addanki","Paruchuru","Eluru","Bhimavaram","Kalla","Kaikaluru","Akiveedu","Kadapa","Nellore","Tirupathi","Proddutur","Ananthapur","Dharmavaram","Jayalakshmipuram","Kurnool","Kamareddy","Nizamabad","Banswada","Warangal","Karimnagar","Chinakodepaka","Janawada","Mahabubnagar"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,7 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
         noofunits= (EditText) findViewById(R.id.noofunits);
         location= (EditText) findViewById(R.id.location);
         contactno= (EditText) findViewById(R.id.contactno);
+        bloodGroup = (Spinner) findViewById(R.id.spinner);
         
         database = FirebaseDatabase.getInstance();
         dref = database.getReference();
@@ -49,6 +52,30 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
 
         btn = (Button) findViewById(R.id.post_request_button);
 
+        List<String> bloodGroups = new ArrayList<String>();
+        bloodGroups.add("A+");
+        bloodGroups.add("A-");
+        bloodGroups.add("A1+");
+        bloodGroups.add("A1-");
+        bloodGroups.add("A1B+");
+        bloodGroups.add("A1B-");
+        bloodGroups.add("A2+");
+        bloodGroups.add("A2-");
+        bloodGroups.add("A2B+");
+        bloodGroups.add("A2B-");
+        bloodGroups.add("AB+");
+        bloodGroups.add("AB-");
+        bloodGroups.add("B+");
+        bloodGroups.add("B-");
+        bloodGroups.add("Bombay blood group");
+        bloodGroups.add("INRA");
+        bloodGroups.add("O+");
+        bloodGroups.add("O-");
+        bloodGroup.setPrompt("Select Blood group");
+        final ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, bloodGroups);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        bloodGroup.setAdapter(dataAdapter);
+        bloodGroup.setOnItemSelectedListener(this);
         btn.setOnClickListener(this);
     }
     
@@ -59,7 +86,7 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
         {
             final String institutionName,numberOfUnits,location;
             institutionName = name.getText().toString();
-            numberOfUnits = noofunits.getText().toString();
+            numberOfUnits = noofunits.longValue();
             contactNumber = contactno.getText().toString();
             location = plocation.getText().toString();
 
