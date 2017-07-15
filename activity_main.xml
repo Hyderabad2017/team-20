@@ -42,5 +42,13 @@
         tools:layout_editor_absoluteX="27dp"
         tools:layout_editor_absoluteY="57dp" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send Request"
+        tools:layout_editor_absoluteX="109dp"
+        tools:layout_editor_absoluteY="244dp" />
+
 
 </android.support.constraint.ConstraintLayout>
