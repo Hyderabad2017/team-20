@@ -17,17 +17,18 @@ public class Donor {
     public Long dContact1;
     public Long dContact2;
     public String dEmail;
+    public String dPassword;
     public String dLocation;
     public Long dLat;
     public Long dLong;
     public String dDate;
     public String dPublished;
 
-    public Post() {
+    public Donor() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
     }
 
-    public Post(Long did, String dname, String dbloodgroup, Long dweight, Long dcontact1, Long dcontact2,String demail, String dlocation,Long dlat, Long dlong,String ddate, String dpublished) {
+    public Donor(Long did, String dname, String dbloodgroup, Long dweight, Long dcontact1, Long dcontact2,String demail, String dpassword, String dlocation,Long dlat, Long dlong,String ddate, String dpublished) {
         this.dID = did;
         this.dName = dname;
         this.dBloodGroup = dbloodgroup;
