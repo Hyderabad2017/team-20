@@ -1,5 +1,6 @@
 package com.example.dattamber.cfg_uwh;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +26,9 @@ public class donor_signup extends AppCompatActivity implements View.OnClickListe
     EditText name,dat,location,contact1,contact2,password,email,bloodgroup;
     Button btn;
     FirebaseDatabase database;
+    FirebaseAuth mAuth;
     DatabaseReference dref,count;
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +41,8 @@ public class donor_signup extends AppCompatActivity implements View.OnClickListe
         password= (EditText) findViewById(R.id.password);
         database = FirebaseDatabase.getInstance();
         dref = database.getReference();
+        mAuth = FirebaseAuth.getInstance();
+        pd = new ProgressDialog(this);
         email= (EditText) findViewById(R.id.email1);
         bloodgroup= (EditText) findViewById(R.id.bloodGroup);
         btn = (Button) findViewById(R.id.email_sign_in_button);
@@ -54,6 +61,7 @@ public class donor_signup extends AppCompatActivity implements View.OnClickListe
             demail = email.getText().toString();
             count = database.getReference("countd");
             dbloodgroup = bloodgroup.getText().toString();
+            dpassword = password.getText().toString();
             if(!dname.equals("") && !demail.equals("") && !dbloodgroup.equals("") && !dcontact1.equals("") && !dcontact2.equals("") && dcontact1.length() == 10 && dcontact2.length() == 10)
             {
                 count.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -63,15 +71,23 @@ public class donor_signup extends AppCompatActivity implements View.OnClickListe
                         Donor donor = new Donor ( coun1,dname,dbloodgroup,dcontact1,dcontact2,demail,dlocation);
                         Map<String, Object> postValues = donor.toMap();
                         Map<String, Object> childUpdates = new HashMap<>();
-                        childUpdates.put("/users/user" + String.valueOf(fe), postValues);
+                        childUpdates.put("/users/user" + String.valueOf(coun1), postValues);
                         coun1++;
                         final Long finalCoun = coun1;
+                        mAuth.createUserWithEmailAndPassword(demail, dpassword).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                            @Override
+                            public void onSuccess(AuthResult authResult) {
+                                Toast.makeText(getApplicationContext(),"Successfully added",Toast.LENGTH_LONG);
+                            }
+                        });
+
                         dref.updateChildren(childUpdates).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 try {
-                                    dref.child("count").setValue(finalCoun);
-                                    Toast.makeText()
+                                    dref.child("countd").setValue(finalCoun);
+                                    pd.dismiss();
+                                    Toast.makeText(getApplicationContext(),"Added Successfully",Toast.LENGTH_LONG).show();
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                     Toast.makeText(donor_signup.this, "User adding failed", Toast.LENGTH_LONG).show();
