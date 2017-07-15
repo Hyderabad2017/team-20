@@ -102,9 +102,9 @@ public class UpdatePost extends AppCompatActivity implements View.OnClickListene
                     public void onDataChange(DataSnapshot tasksSnapshot) {
                         for (DataSnapshot snapshot: tasksSnapshot.getChildren()) {
                             DatabaseReference ps = FirebaseDatabase.getInstance().getReference("users").child(snapshot.getKey());
-                            ps.child("fContact1").setValue(content.getText().toString());
-                            ps.child("fContact2").setValue(team.getText().toString());
-                            ps.child("fLocation").setValue(title.getText().toString());
+                            ps.child("fContact1").setValue(dContact1.getText().toString());
+                            ps.child("fContact2").setValue(dContact2.getText().toString());
+                            ps.child("fLocation").setValue(dLocation.getText().toString());
                             onBackPressed();
                         }
                     }
