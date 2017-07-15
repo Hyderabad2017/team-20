@@ -3,127 +3,52 @@ package com.example.dattamber.sdhs;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Dattamber on 17/06/2017.
- */
 
 public class Card {
-    public String title;
-    public String category;
-    public String team;
-    public String published;
-    public String thumbnail;
-    public String path;
-    public String date;
-    public String url;
-    public Long likeCount;
-    public String content;
-    public Long id;
-    public String filePath;
-    public Map<String,Long> likes = new HashMap<>();
-
-    public String getfilePath() {
-        return filePath;
+    public String iName;
+    public String location;
+    public String bloodGroup;
+    public String iContact1;
+    public String iContact2;
+    
+    public String getIName() {
+        return iName;
     }
 
-    public void setfilePath(String filePath) {
-        this.filePath = filePath;
+    public void setIName(String name) {
+        this.iName = name;
     }
 
-    public Long getpid() {
-        return id;
+    public String getLocation() {
+        return location;
     }
 
-    public void setpid(Long id) {
-        this.id = id;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public Long getlikeCount() {
-        return likeCount;
+    public String getBloodGroup() {
+        return bloodGroup;
     }
 
-    public Map<String,Long> getlikeslist(){
-        return likes;
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
     }
 
-    public void setlikeslist(Map<String,Long> likes)
-    {
-        this.likes = likes;
-    }
-    public void setlikeCount(Long likeCount) {
-        this.likeCount = likeCount;
+    public String getIContact1() {
+        return iContact1
     }
 
-    public String getthumbnail() {
-        return thumbnail;
+    public void setIContact1(String iContact1) {
+        this.iContact1 = iContact1;
     }
 
-    public void setthumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public String getIContact2() {
+        return iContact2
     }
 
-    public String getpath() {
-        return path;
-    }
-
-    public void setpath(String path) {
-        this.path = path;
-    }
-
-    public String gettitle() {
-        return title;
-    }
-
-    public void settitle(String title) {
-        this.title = title;
-    }
-
-
-    public String getpublished() {
-        return published;
-    }
-
-    public void setdate(String date) {
-        this.date = date;
-    }
-
-    public String getdate() {
-        return date;
-    }
-
-    public void setpublished(String published) {
-        this.published = published;
-    }
-
-    public String geturl() {
-        return url;
-    }
-
-    public void seturl(String url) {
-        this.url = url;
-    }
-
-    public String getcategory() {
-        return category;
-    }
-
-    public void setcategory(String category) {
-        this.category = category;
-    }
-
-    public String getcontent() {
-        return content;
-    }
-
-    public void setcontent(String content) {
-        this.content = content;
-    }
-
-    public String getteam() {
-        return team;
-    }
-
-    public void setteam(String team) {
-        this.team = team;
-    }
+    public void setIContact2(String iContact2) {
+        this.IContact2 = IContact2;
+    }   
 }
+
