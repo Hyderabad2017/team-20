@@ -1,1 +1,2 @@
-AIzaSyBD05MVL9MXxgFoeonGIhl_lkbb82XMydg   -distancematrix api key
+    https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=Hyderabad&destinations=Bangalore&key=AIzaSyBD05MVL9MXxgFoeonGIhl_lkbb82XMydg
+    AIzaSyBD05MVL9MXxgFoeonGIhl_lkbb82XMydg   -distancematrix api key
