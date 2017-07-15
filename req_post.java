@@ -36,7 +36,7 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.req_post);
 
         
         name= (EditText) findViewById(R.id.name);
@@ -122,7 +122,7 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
                                     Toast.makeText(getApplicationContext(),"Request Added Successfully",Toast.LENGTH_LONG).show();
                                 } catch (Exception e) {
                                     e.printStackTrace();
-                                    Toast.makeText(activity_main.this, "Request adding failed", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(req_post.this, "Request adding failed", Toast.LENGTH_LONG).show();
                                 }
 
                             }
@@ -130,7 +130,7 @@ public class Request_Post extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 pd.dismiss();
-                                Toast.makeText(activity_main.this, "Request adding failed", Toast.LENGTH_LONG).show();
+                                Toast.makeText(req_post.this, "Request adding failed", Toast.LENGTH_LONG).show();
                             }
                         });
                     }
