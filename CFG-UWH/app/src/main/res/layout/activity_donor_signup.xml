@@ -61,7 +61,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:hint="Contact1"
+                android:maxLength="10"
+                android:hint="Contact 1"
                 android:maxLines="1" />
 
             <EditText
@@ -69,7 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:hint="Contact2"
+                android:maxLength="10"
+                android:hint="Contact 2"
                 android:maxLines="1" />
 
             <EditText
@@ -78,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:hint="Blood Group"
+                android:maxLength="5"
                 android:maxLines="1" />
 
             <EditText
@@ -106,8 +109,9 @@
 
             <Button
                 android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="Sign Up"

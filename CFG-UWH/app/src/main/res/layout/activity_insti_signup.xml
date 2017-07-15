@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dattamber.cfg_uwh.insti_signup">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/inslogo"/>
+    <EditText
+        android:id="@+id/bname"
+        android:layout_width="match_parent"
+        android:layout_below="@id/inslogo"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Name" />
+
+    <EditText
+        android:id="@+id/bcontact1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Contact number"
+        android:layout_below="@+id/bname" />
+
+    <EditText
+        android:id="@+id/bcontact2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_below="@+id/bcontact1"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="Alternate contact number" />
+
+    <EditText
+        android:id="@+id/bemail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bcontact2"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="E-Mail address" />
+
+    <EditText
+        android:id="@+id/blocation"
+        android:layout_width="match_parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bemail"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Location" />
+
+    <EditText
+        android:id="@+id/bpass"
+        android:layout_width="match_parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/blocation"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Enter password" />
+
+    <EditText
+        android:id="@+id/bpassaa"
+        android:layout_width="match_parent"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bpass"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Re-enter password" />
+
+    <Button
+        android:id="@+id/bsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="22dp"
+        android:layout_below="@id/bpassaa"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:text="Sign up" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

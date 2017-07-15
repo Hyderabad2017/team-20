@@ -20,7 +20,11 @@
             android:name=".DonorMain"
             android:label="@string/title_activity_donor_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".donor_signup"></activity>
+        <activity android:name=".donor_signup" />
+        <activity android:name=".insti_signup" />
+        <activity android:name=".Bloodbank" />
+        <activity android:name=".admin" />
+        <activity android:name=".req_post"></activity>
     </application>
 
 </manifest>

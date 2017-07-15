@@ -43,6 +43,9 @@ public class Donor {
         result.put("dContact1",dContact1);
         result.put("dContact2",dContact2);
         result.put("dEmail",dEmail);
+        result.put("dtype","user");
+        result.put("dlat","789");
+        result.put("dlon","546");
         result.put("dLocation",dLocation);
         return result;
     }
