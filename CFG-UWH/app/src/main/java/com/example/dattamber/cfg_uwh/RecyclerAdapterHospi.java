@@ -57,7 +57,6 @@ public class RecyclerAdapterHospi extends RecyclerView.Adapter<RecyclerAdapterHo
         holder.IContact1.setText(mylist.contactNumber());
         holder.IContact2.setText(mylist.getcontact2());
         holder.Date.setText(mylist.getdeadline());
-        holder.ph.setVisibility(View.INVISIBLE);
         holder.IContact2.setLinkTextColor(Color.parseColor("#000000"));
         holder.IContact1.setLinkTextColor(Color.parseColor("#000000"));
         holder.btn.setOnClickListener(new View.OnClickListener() {
