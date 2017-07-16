@@ -41,6 +41,7 @@ public class insti_signup extends AppCompatActivity implements View.OnClickListe
         bname = (EditText) findViewById(R.id.bname);
         bcontact1 = (EditText) findViewById(R.id.bcontact1);
         bcontact2 = (EditText) findViewById(R.id.bcontact2);
+        getSupportActionBar().setTitle("Add blood bank");
         bemail = (EditText) findViewById(R.id.bemail);
         blocation = (EditText) findViewById(R.id.blocation);
         bpass = (EditText) findViewById(R.id.bpass);

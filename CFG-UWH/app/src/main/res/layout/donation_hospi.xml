@@ -42,6 +42,7 @@
                 android:layout_below="@id/chname"
                 android:layout_alignParentLeft="true"
                 android:paddingLeft="10px"
+                android:id="@+id/bfff"
                 android:paddingRight="10px"
                 android:paddingTop="10px"
                 android:text="Blood group :"
@@ -71,6 +72,7 @@
                 android:paddingLeft="10px"
                 android:paddingRight="10px"
                 android:paddingTop="10px"
+                android:id="@+id/cfff"
                 android:text="Contact :"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"/>
@@ -121,7 +123,7 @@
                 android:id="@+id/chdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cdphone1"
+                android:layout_below="@id/chphone1"
                 android:paddingBottom="5px"
                 android:paddingLeft="5px"
                 android:paddingRight="5px"
@@ -135,9 +137,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/donemail"
-                android:layout_below="@id/chdate"
+                android:layout_below="@id/chplace"
                 android:layout_centerHorizontal="true"
-                android:hint="Enter email of donor"/>
+                android:hint="Enter contact number of donor"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="completed"
+                android:id="@+id/comp"
+                android:layout_below="@id/donemail"/>
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

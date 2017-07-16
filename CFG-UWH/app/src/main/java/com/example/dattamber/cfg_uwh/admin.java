@@ -1,5 +1,6 @@
 package com.example.dattamber.cfg_uwh;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -27,6 +28,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener {
     Button user,dons,banks;
     FirebaseDatabase database;
     DatabaseReference dref;
+    Button btn;
     Query query;
     List<User> list;
     List<Req> list1;
@@ -43,11 +45,19 @@ public class admin extends AppCompatActivity implements View.OnClickListener {
         user.setOnClickListener(this);
         banks.setOnClickListener(this);
         dons.setOnClickListener(this);
-
+        btn = (Button) findViewById(R.id.instign);
+        getSupportActionBar().setTitle("Admin");
         adminrecyc = (RecyclerView) findViewById(R.id.adminrecyc);
         database = FirebaseDatabase.getInstance();
         dref = (DatabaseReference) database.getReference("requests");
         dref.keepSynced(true);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),insti_signup.class);
+                startActivity(intent);
+            }
+        });
         query = dref.orderByChild("dID");
         // Toast.makeText(admin.this,"okay",Toast.LENGTH_SHORT);
         query.addValueEventListener(new ValueEventListener() {
@@ -65,11 +75,13 @@ public class admin extends AppCompatActivity implements View.OnClickListener {
                     String phone1 = value.contact2();
                     String deadline = value.getdeadline();
                     String phone = value.contactNumber();
+                    String status = value.getStat();
                     String location = value.getlocation();
                     Long did = value.getdonationId();
                     fire.setinstitutionName(name);
                     fire.setcontactNumber(phone);
                     fire.setbloodGroup(bloodgroup);
+                    fire.setStat(status);
                     fire.setcontact2(phone1);
                     fire.setdeadline(deadline);
                     fire.setlocation(location);
@@ -101,6 +113,7 @@ public class admin extends AppCompatActivity implements View.OnClickListener {
             database = FirebaseDatabase.getInstance();
             dref = (DatabaseReference) database.getReference("users");
             dref.keepSynced(true);
+            getSupportActionBar().setTitle("Admin");
             query = dref.orderByChild("dID");
             // Toast.makeText(admin.this,"okay",Toast.LENGTH_SHORT);
             query.addValueEventListener(new ValueEventListener() {
@@ -200,6 +213,14 @@ public class admin extends AppCompatActivity implements View.OnClickListener {
         else if(v == dons)
         {
             adminrecyc = (RecyclerView) findViewById(R.id.adminrecyc);
+            user = (Button) findViewById(R.id.useradmin);
+            dons = (Button) findViewById(R.id.donsadmin);
+            banks = (Button) findViewById(R.id.banksadmin);
+            user.setOnClickListener(this);
+            banks.setOnClickListener(this);
+            dons.setOnClickListener(this);
+
+            adminrecyc = (RecyclerView) findViewById(R.id.adminrecyc);
             database = FirebaseDatabase.getInstance();
             dref = (DatabaseReference) database.getReference("requests");
             dref.keepSynced(true);
@@ -214,21 +235,25 @@ public class admin extends AppCompatActivity implements View.OnClickListener {
                     //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
                     for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                         Req value = dataSnapshot1.getValue(Req.class);
-                            Req fire = new Req();
-                            String name = value.getinstitutionName();
-                            String bloodgroup = value.getbloodGroup();
-                            String phone1 = value.contact2();
-                            String phone = value.contactNumber();
-                            String location = value.getlocation();
-                            Long did = value.getdonationId();
-                            fire.setinstitutionName(name);
-                            fire.setcontactNumber(phone);
-                            fire.setbloodGroup(bloodgroup);
-                            fire.setcontact2(phone1);
-                            fire.setlocation(location);
-                            fire.setdonationId(did);
-                            //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
-                            list1.add(fire);
+                        Req fire = new Req();
+                        String name = value.getinstitutionName();
+                        String bloodgroup = value.getbloodGroup();
+                        String phone1 = value.contact2();
+                        String deadline = value.getdeadline();
+                        String phone = value.contactNumber();
+                        String status = value.getStat();
+                        String location = value.getlocation();
+                        Long did = value.getdonationId();
+                        fire.setinstitutionName(name);
+                        fire.setcontactNumber(phone);
+                        fire.setbloodGroup(bloodgroup);
+                        fire.setcontact2(phone1);
+                        fire.setdeadline(deadline);
+                        fire.setStat(status);
+                        fire.setlocation(location);
+                        fire.setdonationId(did);
+                        //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
+                        list1.add(fire);
                     }
 
                     RecyclerAdapterDonation recyclerAdapter = new RecyclerAdapterDonation(list1,admin.this);

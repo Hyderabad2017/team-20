@@ -1,101 +1,215 @@
 package com.example.dattamber.cfg_uwh;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
-public class DonorMain extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class DonorMain extends AppCompatActivity {
+    RecyclerView donrecycler;
+    Button emer,all,addreq,cur;
+    FirebaseDatabase database;
+    DatabaseReference dref;
+    String lat,lon,location,con1,con2,instName;
+    Query query;
+    List<Req> list1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_donor_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_donor_main2);
+        Bundle bd=getIntent().getExtras();
+        donrecycler = (RecyclerView) findViewById(R.id.donrecyc);
+        instName=bd.getString("instName");
+        getSupportActionBar().setTitle(instName);
+        emer = (Button) findViewById(R.id.donemerbtn);
+        all = (Button) findViewById(R.id.donallbtas);
+        all.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                donrecycler = (RecyclerView) findViewById(R.id.donrecyc);
+                database = FirebaseDatabase.getInstance();
+                dref = (DatabaseReference) database.getReference("requests");
+                dref.keepSynced(true);
+                query = dref.orderByChild("dID");
+                // Toast.makeText(DonorMain.this,"okay",Toast.LENGTH_SHORT);
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        list1 = new ArrayList<Req>();
+                        //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
+                        for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
+                            Req value = dataSnapshot1.getValue(Req.class);
+                            if(value.getStatus().equals("incomplete")) {
+                                Req fire = new Req();
+                                String name = value.getinstitutionName();
+                                String bloodgroup = value.getbloodGroup();
+                                String phone1 = value.contact2();
+                                String phone = value.contactNumber();
+                                String location = value.getlocation();
+                                String status = value.getStatus();
+                                String stat = value.getStat();
+                                String deadline = value.getdeadline();
+                                Long did = value.getdonationId();
+                                fire.setinstitutionName(name);
+                                fire.setcontactNumber(phone);
+                                fire.setStatus(status);
+                                fire.setbloodGroup(bloodgroup);
+                                fire.setcontact2(phone1);
+                                fire.setlocation(location);
+                                fire.setdonationId(did);
+                                fire.setdeadline(deadline);
+                                fire.setStat(stat);
+                                //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
+                                list1.add(fire);
+                            }
+                        }
+
+                        RecyclerAdapterDonation recyclerAdapter = new RecyclerAdapterDonation(list1,DonorMain.this);
+                        RecyclerView.LayoutManager recyce = new GridLayoutManager(DonorMain.this,1);
+                        donrecycler.setLayoutManager(recyce);
+                        donrecycler.setItemAnimator( new DefaultItemAnimator());
+                        donrecycler.setAdapter(recyclerAdapter);
+                    }
+
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        Log.w("Hello", "Failed to read value.", error.toException());
+                    }
+                });
             }
         });
+        emer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                donrecycler = (RecyclerView) findViewById(R.id.donrecyc);
+                database = FirebaseDatabase.getInstance();
+                dref = (DatabaseReference) database.getReference("requests");
+                dref.keepSynced(true);
+                query = dref.orderByChild("dID");
+                // Toast.makeText(DonorMain.this,"okay",Toast.LENGTH_SHORT);
+                query.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This method is called once with the initial value and again
+                        // whenever data at this location is updated.
+                        list1 = new ArrayList<Req>();
+                        //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
+                        for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
+                            Req value = dataSnapshot1.getValue(Req.class);
+                            if(value.getStat().equals("true") && value.getStatus().equals("incomplete")) {
+                                Req fire = new Req();
+                                String name = value.getinstitutionName();
+                                String bloodgroup = value.getbloodGroup();
+                                String phone1 = value.contact2();
+                                String phone = value.contactNumber();
+                                String location = value.getlocation();
+                                String status = value.getStatus();
+                                String stat = value.getStat();
+                                String deadline = value.getdeadline();
+                                Long did = value.getdonationId();
+                                fire.setinstitutionName(name);
+                                fire.setStatus(status);
+                                fire.setcontactNumber(phone);
+                                fire.setbloodGroup(bloodgroup);
+                                fire.setcontact2(phone1);
+                                fire.setlocation(location);
+                                fire.setdeadline(deadline);
+                                fire.setdonationId(did);
+                                fire.setStat(stat);
+                                //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
+                                list1.add(fire);
+                            }
+                        }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
+                        RecyclerAdapterDonation recyclerAdapter = new RecyclerAdapterDonation(list1,DonorMain.this);
+                        RecyclerView.LayoutManager recyce = new GridLayoutManager(DonorMain.this,1);
+                        donrecycler.setLayoutManager(recyce);
+                        donrecycler.setItemAnimator( new DefaultItemAnimator());
+                        donrecycler.setAdapter(recyclerAdapter);
+                    }
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-    }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        // Failed to read value
+                        Log.w("Hello", "Failed to read value.", error.toException());
+                    }
+                });
+            }
+        });
+        donrecycler = (RecyclerView) findViewById(R.id.donrecyc);
+        database = FirebaseDatabase.getInstance();
+        dref = (DatabaseReference) database.getReference("requests");
+        dref.keepSynced(true);
+        query = dref.orderByChild("dID");
+        // Toast.makeText(DonorMain.this,"okay",Toast.LENGTH_SHORT);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                list1 = new ArrayList<Req>();
+                //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
+                for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
+                    Req value = dataSnapshot1.getValue(Req.class);
+                    assert value != null;
+                    if(value.getStatus().equals("incomplete")) {
+                        Req fire = new Req();
+                        String name = value.getinstitutionName();
+                        String bloodgroup = value.getbloodGroup();
+                        String phone1 = value.contact2();
+                        String deadline = value.getdeadline();
+                        String phone = value.contactNumber();
+                        String status = value.getStatus();
+                        String stat = value.getStat();
+                        String location = value.getlocation();
+                        Long did = value.getdonationId();
+                        fire.setinstitutionName(name);
+                        fire.setcontactNumber(phone);
+                        fire.setbloodGroup(bloodgroup);
+                        fire.setStatus(status);
+                        fire.setcontact2(phone1);
+                        fire.setStat(stat);
+                        fire.setdeadline(deadline);
+                        fire.setlocation(location);
+                        fire.setdonationId(did);
+                        //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
+                        list1.add(fire);
+                    }
+                }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.donor_main, menu);
-        return true;
-    }
+                RecyclerAdapterDonation recyclerAdapter = new RecyclerAdapterDonation(list1,DonorMain.this);
+                RecyclerView.LayoutManager recyce = new GridLayoutManager(DonorMain.this,1);
+                donrecycler.setLayoutManager(recyce);
+                donrecycler.setItemAnimator( new DefaultItemAnimator());
+                donrecycler.setAdapter(recyclerAdapter);
+            }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w("Hello", "Failed to read value.", error.toException());
+            }
+        });
+        
     }
 }

@@ -33,6 +33,7 @@ public class donor_signup extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donor_signup);
+        getSupportActionBar().setTitle("Sign up as donor");
         name= (EditText) findViewById(R.id.name);
         dat= (EditText) findViewById(R.id.datOfBirth);
         location= (EditText) findViewById(R.id.location);

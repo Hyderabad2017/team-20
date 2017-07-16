@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/rule1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Age should be between 18-60"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+    <TextView
+        android:id="@+id/rule2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Weight is more than 45Kg"
+        android:layout_below="@id/rule1"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+
+    <TextView
+        android:id="@+id/rule3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Haemoglobin should be minimum 12.5 gm"
+        android:layout_below="@id/rule2"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+    <TextView
+        android:id="@+id/rule4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Last blood donation was 3 or more months earlier"
+        android:layout_below="@id/rule3"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+    <TextView
+        android:id="@+id/rule5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Donor should not have consumed alcohol in the past 24hrs"
+        android:layout_below="@id/rule4"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+    <TextView
+        android:id="@+id/rule6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="- Should not have cold/fever in the past 1 week"
+        android:layout_below="@id/rule5"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I agree to the above terms"
+        android:id="@+id/checkBox"
+        android:layout_alignParentBottom="true"
+        android:onClick="clicked"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp" />
+
+</RelativeLayout>
