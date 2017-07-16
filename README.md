@@ -2,12 +2,12 @@
 Documentation for the Team Name: 20
 ---
 Team Members:
-1. [Dattamber Jukanti] (http://github.com/dattamberj)
-2. [Saiyana Ramisetty] (http://github.com/saiyana)
-3. [Chandana Rayini] (http://github.com/rayinichandana98)
-4. [Manisha Maddi] (http://github.com/nisha-m)
-5. [Arshad Mohammed] (http://github.com/geekaruu)
-6. [Avvaru Tejaswini] (http://github.com/tejaswiniavvuru)
+1. [Dattamber Jukanti](http://github.com/dattamberj)
+2. [Saiyana Ramisetty](http://github.com/saiyana)
+3. [Chandana Rayini](http://github.com/rayinichandana98)
+4. [Manisha Maddi](http://github.com/nisha-m)
+5. [Arshad Mohammed](http://github.com/geekaruu)
+6. [Avvaru Tejaswini](http://github.com/tejaswiniavvuru)
 ---
 Technology Stack:
 
@@ -38,3 +38,4 @@ Donor Features:
 * View all donation requests and has ability to filter donation requests based on Emergency or Regular.
 * View the donation history.
 ---
+
