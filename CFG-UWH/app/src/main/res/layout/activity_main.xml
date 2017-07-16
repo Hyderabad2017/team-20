@@ -10,6 +10,7 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/mainlogo"
+        android:layout_marginTop="48dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo"/>
     <EditText
@@ -60,23 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/signuptext"
         android:layout_marginTop="21dp"
-        android:layout_toStartOf="@+id/signuptext"
+        android:layout_centerHorizontal="true"
         style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:text="Donor" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="or"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/signuptext"
-        android:layout_marginTop="32dp"/>
-    <Button
-        android:id="@+id/instbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/password"
-        android:layout_alignTop="@+id/donbtn"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
-        android:text="Institution" />
+
 </RelativeLayout>

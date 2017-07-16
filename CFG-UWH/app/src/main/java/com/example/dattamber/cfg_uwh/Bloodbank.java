@@ -22,7 +22,7 @@ import java.util.List;
 
 public class Bloodbank extends AppCompatActivity {
     RecyclerView adminrecyc;
-    Button emer,all,addreq;
+    Button emer,all,addreq,cur;
     FirebaseDatabase database;
     DatabaseReference dref;
     String lat,lon,location,con1,con2,instName;
@@ -39,9 +39,19 @@ public class Bloodbank extends AppCompatActivity {
         con1=bd.getString("con1");
         con2=bd.getString("con2");
         instName=bd.getString("instName");
-
-
+        getSupportActionBar().setTitle(instName);
         addreq = (Button) findViewById(R.id.addreq);
+        cur = (Button) findViewById(R.id.curr);
+        cur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(),curract.class);
+                Bundle bd = new Bundle();
+                bd.putString("instName",instName);
+                intent.putExtras(bd);
+                startActivity(intent);
+            }
+        });
         addreq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,26 +88,29 @@ public class Bloodbank extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
                         for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                             Req value = dataSnapshot1.getValue(Req.class);
-
-                                Req fire = new Req();
-                                String name = value.getinstitutionName();
-                                String bloodgroup = value.getbloodGroup();
-                                String phone1 = value.contact2();
-                                String phone = value.contactNumber();
-                                String location = value.getlocation();
-                                String stat = value.getStat();
-                                String deadline = value.getdeadline();
-                                Long did = value.getdonationId();
-                                fire.setinstitutionName(name);
-                                fire.setcontactNumber(phone);
-                                fire.setbloodGroup(bloodgroup);
-                                fire.setcontact2(phone1);
-                                fire.setlocation(location);
-                                fire.setdonationId(did);
-                                fire.setdeadline(deadline);
-                                fire.setStat(stat);
-                                //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
-                                list1.add(fire);
+                                if(!value.getinstitutionName().equals(instName) && value.getStatus().equals("incomplete")) {
+                                    Req fire = new Req();
+                                    String name = value.getinstitutionName();
+                                    String bloodgroup = value.getbloodGroup();
+                                    String phone1 = value.contact2();
+                                    String phone = value.contactNumber();
+                                    String location = value.getlocation();
+                                    String status = value.getStatus();
+                                    String stat = value.getStat();
+                                    String deadline = value.getdeadline();
+                                    Long did = value.getdonationId();
+                                    fire.setinstitutionName(name);
+                                    fire.setcontactNumber(phone);
+                                    fire.setStatus(status);
+                                    fire.setbloodGroup(bloodgroup);
+                                    fire.setcontact2(phone1);
+                                    fire.setlocation(location);
+                                    fire.setdonationId(did);
+                                    fire.setdeadline(deadline);
+                                    fire.setStat(stat);
+                                    //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
+                                    list1.add(fire);
+                                }
                         }
 
                         RecyclerAdapterDonation recyclerAdapter = new RecyclerAdapterDonation(list1,Bloodbank.this);
@@ -134,17 +147,19 @@ public class Bloodbank extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
                         for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                             Req value = dataSnapshot1.getValue(Req.class);
-                            if(value.getStat().equals("true")) {
+                            if(value.getStat().equals("true") && !value.getinstitutionName().equals(instName) && value.getStatus().equals("incomplete")) {
                                 Req fire = new Req();
                                 String name = value.getinstitutionName();
                                 String bloodgroup = value.getbloodGroup();
                                 String phone1 = value.contact2();
                                 String phone = value.contactNumber();
                                 String location = value.getlocation();
+                                String status = value.getStatus();
                                 String stat = value.getStat();
                                 String deadline = value.getdeadline();
                                 Long did = value.getdonationId();
                                 fire.setinstitutionName(name);
+                                fire.setStatus(status);
                                 fire.setcontactNumber(phone);
                                 fire.setbloodGroup(bloodgroup);
                                 fire.setcontact2(phone1);
@@ -188,23 +203,29 @@ public class Bloodbank extends AppCompatActivity {
                 //Toast.makeText(MainActivity.this,"entered",Toast.LENGTH_SHORT);
                 for(DataSnapshot dataSnapshot1 :dataSnapshot.getChildren()){
                     Req value = dataSnapshot1.getValue(Req.class);
-                    Req fire = new Req();
-                    String name = value.getinstitutionName();
-                    String bloodgroup = value.getbloodGroup();
-                    String phone1 = value.contact2();
-                    String deadline = value.getdeadline();
-                    String phone = value.contactNumber();
-                    String location = value.getlocation();
-                    Long did = value.getdonationId();
-                    fire.setinstitutionName(name);
-                    fire.setcontactNumber(phone);
-                    fire.setbloodGroup(bloodgroup);
-                    fire.setcontact2(phone1);
-                    fire.setdeadline(deadline);
-                    fire.setlocation(location);
-                    fire.setdonationId(did);
-                    //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
-                    list1.add(fire);
+                    if(!value.getinstitutionName().equals(instName) && value.getStatus().equals("incomplete")) {
+                        Req fire = new Req();
+                        String name = value.getinstitutionName();
+                        String bloodgroup = value.getbloodGroup();
+                        String phone1 = value.contact2();
+                        String deadline = value.getdeadline();
+                        String phone = value.contactNumber();
+                        String status = value.getStatus();
+                        String stat = value.getStat();
+                        String location = value.getlocation();
+                        Long did = value.getdonationId();
+                        fire.setinstitutionName(name);
+                        fire.setcontactNumber(phone);
+                        fire.setbloodGroup(bloodgroup);
+                        fire.setStatus(status);
+                        fire.setcontact2(phone1);
+                        fire.setStat(stat);
+                        fire.setdeadline(deadline);
+                        fire.setlocation(location);
+                        fire.setdonationId(did);
+                        //Toast.makeText(MainActivity.this,url, Toast.LENGTH_SHORT).show();
+                        list1.add(fire);
+                    }
                 }
 
                 RecyclerAdapterDonation recyclerAdapter = new RecyclerAdapterDonation(list1,Bloodbank.this);

@@ -45,14 +45,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         pass = (EditText) findViewById(R.id.password);
         email = (EditText) findViewById(R.id.emailid);
         login.setOnClickListener(this);
+        getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         dref= database.getReference("users");
         pd = new ProgressDialog(MainActivity.this);
         donor = (Button) findViewById(R.id.donbtn);
-        insti = (Button) findViewById(R.id.instbtn);
         donor.setOnClickListener(this);
-        insti.setOnClickListener(this);
     }
 
     @Override
@@ -156,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         else if(v == donor)
         {
-            Intent intent = new Intent(this, donor_signup.class);
+            Intent intent = new Intent(this, checklist.class);
             startActivity(intent);
 
         }

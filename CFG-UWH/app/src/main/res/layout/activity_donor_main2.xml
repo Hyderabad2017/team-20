@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dattamber.cfg_uwh.Bloodbank">
-
+    tools:context="com.example.dattamber.cfg_uwh.DonorMain">
     <LinearLayout
         android:layout_width="match_parent"
         android:weightSum="2"
-        android:id="@+id/lay"
+        android:id="@+id/donlay"
         android:layout_height="wrap_content">
         <Button
             android:layout_width="0dp"
-            android:id="@+id/emerbtn"
+            android:id="@+id/donemerbtn"
             android:layout_weight="1"
             style="@style/Base.Widget.AppCompat.Button.Borderless"
             android:text="EMERGENCY"
             android:layout_height="wrap_content" />
         <Button
             android:layout_width="0dp"
-            android:id="@+id/allbtas"
+            android:id="@+id/donallbtas"
             style = "@style/Widget.AppCompat.Button.Borderless"
             android:layout_weight="1"
             android:text="ALL"
@@ -28,28 +27,7 @@
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:id="@+id/bloodrecyc"
-        android:layout_below="@id/lay"
-        android:layout_marginBottom="44dp"
+        android:id="@+id/donrecyc"
+        android:layout_below="@id/donlay"
         android:layout_height="wrap_content"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:weightSum="2"
-        android:layout_height="wrap_content">
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="ADD a request"
-        android:layout_weight="1"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
-        android:id="@+id/addreq"/>
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="current requests"
-            android:layout_weight="1"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:id="@+id/curr"/>
-    </LinearLayout>
 </RelativeLayout>
